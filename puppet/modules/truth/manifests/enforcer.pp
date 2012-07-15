@@ -1,0 +1,5 @@
+
+class truth::enforcer {
+
+
+}
