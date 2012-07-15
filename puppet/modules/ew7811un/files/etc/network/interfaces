@@ -1,0 +1,13 @@
+cat interfaces
+# Used by ifup(8) and ifdown(8). See the interfaces(5) manpage or
+# /usr/share/doc/ifupdown/examples for more information.
+
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+# automatically turn the wireless on and connect to a network
+auto wlan0
+iface wlan0 inet dhcp
+pre-up wpa_supplicant -Dwext -i wlan0 -c /etc/wpa_supplicant.conf -B
