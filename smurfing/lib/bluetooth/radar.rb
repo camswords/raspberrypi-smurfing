@@ -14,7 +14,7 @@ module Bluetooth
         raise "failed to scan for remote bluetooth devices. Exited with error code #{$?}, error was #{error}"
       end
 
-      result_macs.each { |mac| RemoteDeviceReference.new(mac.chomp()) }
+      result_macs.collect { |mac| RemoteDeviceReference.new(mac.chomp()) }
     end
   end
 end

@@ -12,6 +12,6 @@ if $0 == __FILE__
   end
 
   remote_device_refs = Bluetooth::Radar.scan
-  remote_device_refs.each { |device| puts device }
+  remote_device_refs.each { |device| puts device.about }
 
 end
