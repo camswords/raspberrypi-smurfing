@@ -10,11 +10,11 @@ module Bluetooth
       result_macs = stdout.readlines
       error = stderr.readlines
 
-      if $? != 0 || !error.empty?
-        raise "failed to scan for remote bluetooth devices. Error was #{error}"
+      if !error.empty?
+        raise "failed to scan for remote bluetooth devices. Exited with error code #{$?}, error was #{error}"
       end
 
-      result_macs.each_line { |mac| RemoveDeviceReference.new(mac.chomp()) }
+      result_macs.each { |mac| RemoteDeviceReference.new(mac.chomp()) }
     end
   end
 end
